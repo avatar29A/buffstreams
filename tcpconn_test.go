@@ -11,7 +11,7 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-func exampleCallback(bts []byte) error {
+func exampleCallback(listener *TCPListener, bts []byte) error {
 	msg := &message.Note{}
 	err := proto.Unmarshal(bts, msg)
 	return err
