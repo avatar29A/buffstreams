@@ -12,7 +12,7 @@ import (
 
 // TestCallback is a simple server for test purposes. It has a single callback,
 // which is to unmarshall some data and log it.
-func (t *testController) TestCallback(listener *buffstreams.TCPListener, bts []byte) error {
+func (t *testController) TestCallback(listener *buffstreams.TCPConn, bts []byte) error {
 	msg := &message.Note{}
 	err := proto.Unmarshal(bts, msg)
 	if t.enableLogging {
